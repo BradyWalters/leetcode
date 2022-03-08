@@ -32,3 +32,17 @@ export function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): L
         return list1
     }
 };
+
+export const makeList = (arr: Array<number> | null): ListNode => {
+    if(!arr) return new ListNode()
+
+    const head = new ListNode(arr[0])
+    let prevNode = head
+    for(let i = 1; i < arr.length; i++) {
+        const newNode = new ListNode(arr[i])
+        prevNode.next = newNode
+        prevNode = newNode
+    }
+
+    return head
+}
